@@ -100,12 +100,15 @@ class ApiClient {
             MaterialPageRoute(
                 builder: (context) => const BottomNavBar()),(route)=>false);
       }else{
+        Provider.of<AccessTokenProvider>(context,listen: false).stopLoading();
         return response.data;
+
       }
       //returns the successful json object
       // return response.data;
     } on DioError catch (e) {
       Fluttertoast.showToast(msg: "Error: $e");
+      Provider.of<AccessTokenProvider>(context,listen: false).stopLoading();
       return e;
     }
   }
@@ -404,7 +407,8 @@ class ApiClient {
       var res = await response.stream.bytesToString();
       var body = jsonDecode(res);
       var message = body['message'];
-      Fluttertoast.showToast(msg: message);
+      // Fluttertoast.showToast(msg: message);
+      Provider.of<AccessTokenProvider>(context,listen: false).stopLoading();
       Navigator.pushAndRemoveUntil(context, (MaterialPageRoute(builder: (context)=>BottomNavBar())), (route) => false);
       //toast
 

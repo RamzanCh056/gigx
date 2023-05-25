@@ -514,10 +514,13 @@ class _BottomSheetState extends State<BottomSheet> {
       });
     } else {
       visibleCountryName=false;
+      print(enteredKeyword);
+
       results = widget.countryName.where((countryName) =>
           countryName.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
       // we use the toLowerCase() method to make it case-insensitive
+      print(results);
     }
     // Refresh the UI
     setState(() {
@@ -593,19 +596,21 @@ class _BottomSheetState extends State<BottomSheet> {
                   onTap: (){
                     var user=Provider.of<AccessTokenProvider>(context,listen:false).userKyc;
                     if(user?.country==null){
-                      user!.country=widget.countryName[index];
+                      user!.country=foundData[index];
                     }else{
-                      user!.country=widget.countryName[index];
+                      user!.country=foundData[index];
                     }
                     Provider.of<AccessTokenProvider>(context,listen:false).updateUserKyc(user);
                     print("Country= ${Provider.of<AccessTokenProvider>(context,listen:false).userKyc?.country}");
                     Provider.of<AccessTokenProvider>(context,listen:false).updateCountryName(foundData[index],
-                      widget.countryImages[widget.countryName.indexOf(Provider.of<AccessTokenProvider>(context,listen:false).countryName)]
+                      widget.countryImages[widget.countryName.indexOf(foundData[index])]
                     );
                     searchController.text=foundData[index];
+
                     setState(() {
 
                     });
+                    Navigator.pop(context);
                     print(Provider.of<AccessTokenProvider>(context,listen:false).countryName);
                   },
                   child: Padding(
@@ -613,13 +618,13 @@ class _BottomSheetState extends State<BottomSheet> {
                     child: Row(
                       children: [
                         Image(
-                          image: AssetImage(widget.countryImages[index]),
+                          image: AssetImage(widget.countryImages[widget.countryName.indexOf(foundData[index])]),
                         ),
                         const SizedBox(
                           width: 20,
                         ),
                         ReusableText(
-                          title: widget.countryName[index],
+                          title: foundData[index],
                           color: whiteColor,
                           size: 18,
                         )

@@ -82,7 +82,7 @@ class _ScanningCompletedPassportState extends State<ScanningCompletedPassport> {
                     padding: EdgeInsets.symmetric(horizontal: 25),
                     child: InkWell(
                       onTap: (){
-
+                        Provider.of<AccessTokenProvider>(context,listen: false).startLoading();
                         var user=Provider.of<AccessTokenProvider>(context,listen:false).userKyc;
                         Provider.of<AccessTokenProvider>(context,listen:false).updateUserKyc(user);
                         ApiClient().postKycData(user!, context);

@@ -76,22 +76,22 @@ class _ScanPassportState extends State<ScanPassport> {
                   const SizedBox(
                     height: 15,
                   ),
-                  Center(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 135, vertical: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                            color: const Color(0xff03E5D4), width: 2),
-                      ),
-                      child: const ReusableText(
-                        title: 'Upload',
-                        color: Color(0xff03E5D4),
-                        weight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                  // Center(
+                  //   child: Container(
+                  //     padding:
+                  //         EdgeInsets.symmetric(horizontal: 135, vertical: 15),
+                  //     decoration: BoxDecoration(
+                  //       borderRadius: BorderRadius.circular(30),
+                  //       border: Border.all(
+                  //           color: const Color(0xff03E5D4), width: 2),
+                  //     ),
+                  //     child: const ReusableText(
+                  //       title: 'Upload',
+                  //       color: Color(0xff03E5D4),
+                  //       weight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             )

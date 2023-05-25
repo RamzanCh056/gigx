@@ -314,7 +314,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             border: InputBorder.none,
                             hintText: 'Telegram',
                             prefixIcon: Icon(
-                              Icons.location_on_outlined,
+                              Icons.telegram,
                               color: Color(0xff03E5D4),
                             )),
                       ),
@@ -333,7 +333,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             border: InputBorder.none,
                             hintText: 'State',
                             prefixIcon: Icon(
-                              Icons.location_on_outlined,
+                              Icons.location_on_rounded,
                               color: Color(0xff03E5D4),
                             )),
                       ),
@@ -371,7 +371,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             border: InputBorder.none,
                             hintText: 'Zip',
                             prefixIcon: Icon(
-                              Icons.location_on_outlined,
+                              Icons.markunread_mailbox,
                               color: Color(0xff03E5D4),
                             )),
                       ),
@@ -428,7 +428,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             border: InputBorder.none,
                             hintText: 'Wallet Address',
                             prefixIcon: Icon(
-                              Icons.location_on_outlined,
+                              Icons.wallet_giftcard,
                               color: Color(0xff03E5D4),
                             )),
                       ),
@@ -447,7 +447,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             border: InputBorder.none,
                             hintText: 'Wallet Name',
                             prefixIcon: Icon(
-                              Icons.location_on_outlined,
+                              Icons.abc,
                               color: Color(0xff03E5D4),
                             )),
                       ),

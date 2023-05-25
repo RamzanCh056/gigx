@@ -149,18 +149,26 @@ class _LogInState extends State<LogIn> {
                   ),
                   Provider.of<AccessTokenProvider>(context).isLoading?const Center(child: CircularProgressIndicator()):InkWell(
                     onTap: () async{
-                      Provider.of<AccessTokenProvider>(context,listen: false).startLoading();
-                      LoginApiModel user=LoginApiModel(
-                          email: emailController.text,
-                          password: passwordController.text,
-                          secret: "ZE7EDFlxRz8RJIGKbhbY7qrG");
+                      if(emailController.text.isEmpty ||
+                      passwordController.text.isEmpty){
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("All fields are required")));
+                      }else if(emailController.text.contains('@') && emailController.text.endsWith('.com')){
+                        Provider.of<AccessTokenProvider>(context,listen: false).startLoading();
+                        LoginApiModel user=LoginApiModel(
+                            email: emailController.text,
+                            password: passwordController.text,
+                            secret: "ZE7EDFlxRz8RJIGKbhbY7qrG");
 
-                      ApiClient().login(user.toJson(),context);
+                        ApiClient().login(user.toJson(),context);
 
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => BottomNavBar()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => BottomNavBar()));
+                      }else{
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Please Enter Valid Email")));
+                      }
+
                     },
                     child: ReusableButton(
                       title: 'LogIn',

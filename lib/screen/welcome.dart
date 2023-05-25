@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gigx_website/constant/reusable_button.dart';
 import 'package:gigx_website/constant/reusable_text.dart';
 import 'package:gigx_website/screen/login.dart';
+import 'package:gigx_website/screen/create_account.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -75,7 +76,7 @@ class _WelcomeState extends State<Welcome> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LogIn()));
+                                      builder: (context) => CreateAccount()));
                             },
                             child: ReusableButton(
                               title: 'Get Started',
@@ -91,11 +92,19 @@ class _WelcomeState extends State<Welcome> {
                               borderRadius: BorderRadius.circular(30),
                               border: Border.all(
                                   color: const Color(0xff03E5D4), width: 2)),
-                          child: const ReusableText(
-                            title: 'I already have an account',
-                            weight: FontWeight.bold,
-                            color: Color(0xff03E5D4),
-                          ),
+                          child: InkWell(
+                            onTap:(){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LogIn()));
+                            },
+                            child:ReusableText(
+                              title: 'I already have an account',
+                              weight: FontWeight.bold,
+                              color: Color(0xff03E5D4),
+                            ),
+                          )
                         ),
                       ],
                     )
